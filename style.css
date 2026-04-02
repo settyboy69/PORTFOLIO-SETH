@@ -266,7 +266,8 @@ header h1 {
   bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
-  animation: bounce 2s infinite;
+  animation: bounce 3s infinite;
+  
 }
 
 @keyframes bounce {
@@ -601,6 +602,44 @@ section h2::after {
   font-size: 0.95rem;
   letter-spacing: 1px;
 }
+/* Certificates Section */
+#certificates {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.certificate-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.certificate-card {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+  max-width: 900px;
+  width: 100%;
+}
+
+.certificate-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.certificate-image {
+  width: 100%;
+  max-width: 650px;   /* controls certificate size */
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  border-radius: 8px;
+}
+
+
 
 /* Contact Section */
 .contact-info {
@@ -773,5 +812,4 @@ footer p {
   .contact-info {
     grid-template-columns: 1fr;
   }
-
 }
