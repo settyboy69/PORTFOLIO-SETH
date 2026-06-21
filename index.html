@@ -226,7 +226,7 @@
   /* ---------- ABOUT ---------- */
   #about{ padding:80px 0; background:var(--panel); }
   @media(min-width:768px){ #about{ padding:88px 0; } }
-  .about-grid{ display:grid; gap:48px; grid-template-columns:1fr; align-items:center; }
+  .about-grid{ display:grid; gap:48px; grid-template-columns:1fr; align-items:start; }
   @media(min-width:768px){ .about-grid{ grid-template-columns:1fr 1fr; gap:64px; } }
   .about-text p:not(.eyebrow){ color:var(--muted); font-size:15px; line-height:1.8; margin-bottom:16px; }
   .about-text p:last-child{ margin-bottom:0; }
@@ -481,7 +481,7 @@
             <span class="id-chip">EMAIL SIGNATURE</span>
             <span class="id-chip">NETWORK MANAGEMENT</span>
             <span class="id-chip">SERVER CONFIGURATION</span>
-            <span class="id-chip">IT ASSEt MANAGEMENT</span>
+            <span class="id-chip">IT ASSET'S</span>
           </div>
         </div>
 
@@ -514,7 +514,7 @@
     <div class="about-grid">
       <!-- Left: about heading + bio + counter -->
       <div class="about-text">
-        <p class="eyebrow" style="color:var(--orange);">/about</p>
+        <p class="eyebrow" style="color:var(--orange);margin-top:0;">/about</p>
         <h2 class="section-title" style="margin-bottom:32px;">About Me</h2>
         <p>
           I'm <span>Seth Ongotan</span>, an IT Associate based in San Pedro City, Laguna. I graduated with a Bachelor of Science in Information Technology from SPCBA in August 2026 — and transitioned from intern to full-time associate at Tiger Global Business Services Inc. within the same year.
@@ -534,7 +534,7 @@
 
       <!-- Right: experience heading + timeline -->
       <div>
-        <p class="eyebrow">/experience</p>
+        <p class="eyebrow" style="margin-top:0;">/experience</p>
         <h2 class="section-title" style="margin-bottom:32px;">Experience</h2>
         <div class="timeline">
           <div class="timeline-item">
@@ -555,7 +555,6 @@
             <ul class="timeline-list">
               <li>Supported Microsoft 365 administration across multiple business entities</li>
               <li>Handled mailbox configuration and license management</li>
-              <li>Domain email configuration</li>
             </ul>
           </div>
           <div class="timeline-item">
@@ -564,7 +563,7 @@
             <h3>IT Associate</h3>
             <p class="timeline-org">Tiger Global Business Services Inc.</p>
             <ul class="timeline-list">
-              <li>Enterprise IT administration</li>
+              <li>Owns day-to-day enterprise IT administration</li>
               <li>Contributes to internal automation tooling</li>
               <li>Continues development work on the side</li>
             </ul>
