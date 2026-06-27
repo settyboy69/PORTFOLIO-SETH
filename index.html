@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Seth's Portfolio</title>
 
-<link rel="icon" type="image/png" href="images/logo.png">
+<link rel="icon" type="image/png" href="logo.png">
 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -72,6 +72,7 @@
   .nav-links a:hover::after{ width:100%; }
   .menu-btn{
     display:flex; background:none; border:none; color:var(--paper); cursor:pointer; padding:8px;
+    position:relative; z-index:60;
   }
   .mobile-menu{
     display:none; flex-direction:column; gap:16px; padding:0 24px 20px;
@@ -89,7 +90,7 @@
   /* ---------- HERO ---------- */
   #hero{ padding:104px 0 64px; display:grid; gap:48px; align-items:center; }
   #hero .id-rig{ justify-self:center; }
-  #top{ position:relative; min-height:calc(100vh - 64px); display:flex; flex-direction:column; }
+  #top{ position:relative; min-height:calc(100vh - 64px); display:flex; flex-direction:column; overflow:hidden; }
   #top #hero{ flex:1; }
   .scroll-cue{
     position:absolute; bottom:28px; left:50%; transform:translateX(-50%);
@@ -162,13 +163,24 @@
     touch-action:none;
     cursor:grab;
     margin-top:-8px;
+    will-change:transform;
   }
   .id-swing.js-active{ animation:none; }
   .id-swing.dragging{ cursor:grabbing; }
+  @media(max-width:767px){
+    .id-swing{ animation-name:idSwingMobile; }
+    .id-rig{ transform:translateZ(0); }
+    .id-badge{ max-width:260px; }
+  }
   @keyframes idSwing{
     0%{ transform:rotate(-3.5deg); }
     50%{ transform:rotate(3deg); }
     100%{ transform:rotate(-3.5deg); }
+  }
+  @keyframes idSwingMobile{
+    0%{ transform:rotate(-1deg); }
+    50%{ transform:rotate(1deg); }
+    100%{ transform:rotate(-1deg); }
   }
   .id-badge{
     background:linear-gradient(180deg, var(--panel), var(--surface));
@@ -305,7 +317,6 @@
   #gallery{ padding:48px 0 48px; }
   @media(min-width:768px){ #gallery{ padding:56px 0 64px; } }
 
-  /* FIXED: removed overflow:hidden, no nav buttons needed */
   .gallery-wrap{ position:relative; overflow:hidden; }
 
   .gallery-track{
@@ -332,7 +343,6 @@
   }
   .gallery-item.placeholder svg{ color:var(--muted-3); }
 
-  /* FIXED: nav buttons completely removed — gallery is auto-scrolling marquee */
   .gallery-nav{ display:none !important; }
 
   /* ---------- CONTACT ---------- */
@@ -481,7 +491,7 @@
             <span class="id-chip">EMAIL SIGNATURE</span>
             <span class="id-chip">NETWORK MANAGEMENT</span>
             <span class="id-chip">SERVER CONFIGURATION</span>
-            <span class="id-chip">IT ASSET MANAGEMENT</span>
+            <span class="id-chip">IT ASSET'S</span>
           </div>
         </div>
 
@@ -512,7 +522,6 @@
 <section id="about">
   <div class="wrap">
     <div class="about-grid">
-      <!-- Left: about heading + bio + counter -->
       <div class="about-text">
         <p class="eyebrow" style="color:var(--orange);margin-top:0;">/about</p>
         <h2 class="section-title" style="margin-bottom:32px;">About Me</h2>
@@ -532,7 +541,6 @@
         </div>
       </div>
 
-      <!-- Right: experience heading + timeline -->
       <div>
         <p class="eyebrow" style="margin-top:0;">/experience</p>
         <h2 class="section-title" style="margin-bottom:32px;">Experience</h2>
@@ -681,7 +689,7 @@
         <div class="project-top">
           <span class="project-cat">GAME DEV</span>
           <div style="display:flex;align-items:center;gap:8px;">
-            <span class="project-status">Game Jam</span>
+            <span class="project-status">Game Jam / SAD Project </span>
             <span style="font-family:var(--font-mono);font-size:11px;color:var(--orange);display:flex;align-items:center;gap:4px;">
               <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
               itch.io
@@ -707,19 +715,18 @@
     <p class="section-lead">Moments from talks, expos, and milestones along the way.</p>
 
     <div class="gallery-wrap">
-      <!-- Nav buttons removed: gallery is a marquee auto-scroller, buttons caused visual bleed -->
-
       <div class="gallery-track" id="galleryTrack">
         <div class="gallery-item" data-full="images/gallery-01-full.jpg">
           <img src="images/gallery-01.jpg" alt="Seth Ongotan receiving his internship completion certificate at Tiger Global Business Services Inc." loading="lazy">
         </div>
-
         <div class="gallery-item" data-full="images/capstone -full.jpg">
           <img src="images/capstone.jpg" alt="Seth Ongotan presenting his capstone project, Una Sa Trabaho." loading="lazy">
         </div>
-
         <div class="gallery-item" data-full="images/ethel-full.png">
           <img src="images/ethelcer.png" alt="Seth Ongotan with a certificate of recognition." loading="lazy">
+        </div>
+                <div class="gallery-item" data-full="images/sad-full.jpg">
+          <img src="images/sad.jpg" alt="Seth Ongotan with a certificate of recognition." loading="lazy">
         </div>
       </div>
     </div>
@@ -730,7 +737,7 @@
   <div class="wrap">
     <p class="eyebrow">/contact</p>
     <h2 class="section-title">Let's talk</h2>
-    <p class="section-lead">Always open to collaborating on web systems, discussing modern IT infrastructure, or connecting with fellow game developers to talk.</p>
+    <p class="section-lead">Open to web projects, IT collaboration, or just talking about game dev.</p>
 
     <div class="contact-grid">
       <div class="contact-links">
@@ -748,9 +755,9 @@
             github.com/settyboy69
           </a>
         </div>
-        <p class="location-text">San Pedro City, Laguna</p>
+        <p class="location-text">Manila</p>
       </div>
-
+      
       <div>
         <form id="contactForm" action="https://formspree.io/f/mzdlpvql" method="POST">
           <div>
@@ -813,7 +820,7 @@
     });
   });
 
-  // Lanyard drag-and-swing physics
+  // ─── LANYARD DRAG & SWING PHYSICS (FIXED) ───────────────────────────────────
   const idSwingEl = document.querySelector('.id-swing');
   if (idSwingEl) {
     let angle = 0;
@@ -853,26 +860,14 @@
       if (rafId === null) rafId = requestAnimationFrame(physicsStep);
     }
 
-    function onPointerDown(e) {
-      dragging = true;
-      setIdle(false);
-      idSwingEl.classList.add('dragging');
-      lastPointerX = e.clientX ?? e.touches?.[0]?.clientX ?? 0;
-      lastAngle = angle;
-      velocity = 0;
-      startPhysics();
-      window.addEventListener('pointermove', onPointerMove);
-      window.addEventListener('pointerup', onPointerUp);
-      window.addEventListener('touchmove', onPointerMove, { passive: false });
-      window.addEventListener('touchend', onPointerUp);
-    }
-
     function onPointerMove(e) {
       if (!dragging) return;
-      e.preventDefault?.();
+      e.stopPropagation();
       const x = e.clientX ?? e.touches?.[0]?.clientX ?? 0;
       const dx = x - lastPointerX;
-      angle = Math.max(-45, Math.min(45, lastAngle - dx * dragSensitivity));
+      const isMobile = window.innerWidth < 768;
+      const clamp = isMobile ? 15 : 45;
+      angle = Math.max(-clamp, Math.min(clamp, lastAngle - dx * dragSensitivity));
       idSwingEl.style.transform = `rotate(${angle}deg)`;
     }
 
@@ -880,12 +875,40 @@
       if (!dragging) return;
       dragging = false;
       idSwingEl.classList.remove('dragging');
+      if (idSwingEl.releasePointerCapture && e.pointerId != null) {
+        idSwingEl.releasePointerCapture(e.pointerId);
+      }
       const x = e.clientX ?? e.changedTouches?.[0]?.clientX ?? lastPointerX;
       velocity = (lastPointerX - x) * 0.02;
-      window.removeEventListener('pointermove', onPointerMove);
-      window.removeEventListener('pointerup', onPointerUp);
+      idSwingEl.removeEventListener('pointermove', onPointerMove);
+      idSwingEl.removeEventListener('pointerup', onPointerUp);
       window.removeEventListener('touchmove', onPointerMove);
       window.removeEventListener('touchend', onPointerUp);
+    }
+
+    function onPointerDown(e) {
+      // Don't steal events that started on the nav
+      if (e.target.closest('#nav')) return;
+
+      dragging = true;
+      setIdle(false);
+      idSwingEl.classList.add('dragging');
+
+      // Lock ALL pointer events to this element while dragging
+      if (idSwingEl.setPointerCapture && e.pointerId != null) {
+        idSwingEl.setPointerCapture(e.pointerId);
+      }
+
+      lastPointerX = e.clientX ?? e.touches?.[0]?.clientX ?? 0;
+      lastAngle = angle;
+      velocity = 0;
+      startPhysics();
+
+      // Bind move/up to the badge element, NOT window
+      idSwingEl.addEventListener('pointermove', onPointerMove);
+      idSwingEl.addEventListener('pointerup', onPointerUp);
+      window.addEventListener('touchmove', onPointerMove, { passive: false });
+      window.addEventListener('touchend', onPointerUp);
     }
 
     idSwingEl.addEventListener('pointerdown', onPointerDown);
@@ -893,13 +916,15 @@
 
     window.addEventListener('load', () => {
       setTimeout(() => {
-        angle = -10;
-        velocity = 0.3;
+        const isMobile = window.innerWidth < 768;
+        angle = isMobile ? -2 : -10;
+        velocity = isMobile ? 0.08 : 0.3;
         setIdle(false);
         startPhysics();
       }, 400);
     });
   }
+  // ────────────────────────────────────────────────────────────────────────────
 
   // Scroll cue fade-out
   const scrollCue = document.querySelector('.scroll-cue');
@@ -961,7 +986,6 @@
   if (galleryTrack) {
     bindLightboxClicks(galleryTrack);
 
-    // Clone items 6x so even small galleries never run out of content
     const originalItems = Array.from(galleryTrack.children);
     const COPIES = 6;
     for (let c = 0; c < COPIES; c++) {
@@ -981,7 +1005,6 @@
     let loopWidth = 0;
 
     function measureLoop() {
-      // Width of exactly ONE original set of items + their gaps
       const gap = 16;
       loopWidth = originalItems.reduce((sum, item) => sum + item.offsetWidth + gap, 0);
     }
@@ -997,7 +1020,6 @@
     window.addEventListener('load', () => { measureLoop(); requestAnimationFrame(frame); });
     if (document.readyState === 'complete') { measureLoop(); requestAnimationFrame(frame); }
 
-    // Pause on hover/touch
     galleryTrack.addEventListener('mouseenter', () => galleryTrack.classList.add('paused'));
     galleryTrack.addEventListener('mouseleave', () => galleryTrack.classList.remove('paused'));
     galleryTrack.addEventListener('touchstart', () => galleryTrack.classList.add('paused'), { passive: true });
@@ -1040,6 +1062,7 @@
       alert('Something went wrong sending your message. Please try again or email me directly.');
     }
   });
+
   // Live experience counter — IT Associate since April 23, 2026
   (function() {
     const start = new Date('2026-04-23T08:00:00');
